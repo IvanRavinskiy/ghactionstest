@@ -27,19 +27,19 @@ jobs:
         run: echo "before Install dependencies"
 
       - name: Install dependencies
-        run: npm install
+        run: yarn
 
       - name: echo
         run: echo "before IRun the tests"
 
       - name: Run the tests
-        run: npm test
+        run: yarn test
 
       - name: echo
         run: echo "before Build"
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - run: echo "before Deploy"
 
@@ -54,7 +54,7 @@ jobs:
      - name: Deploy
        run:
           git remote set-url origin https://${github_token}@github.com/${repository}
-          npm run deploy
+          yarn deploy
        env:
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           repository: ${{ github.repository }}
