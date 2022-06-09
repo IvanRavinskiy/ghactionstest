@@ -12,13 +12,13 @@ jobs:
 
     steps:
       - name: echo
-        uses: echo "before Checkout"
+        run: echo "before Checkout"
 
       - name: Checkout repository
-        uses: actions/checkout@v3
+        run: actions/checkout@v3
 
       - name: echo
-        uses: echo "before Set up Node.js"
+        run: echo "before Set up Node.js"
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -26,24 +26,24 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: echo
-        uses: echo "before Install dependencies"
+        run: echo "before Install dependencies"
 
       - name: Install dependencies
         run: npm install
 
       - name: echo
-        uses: echo "before IRun the tests"
+        run: echo "before IRun the tests"
 
       - name: Run the tests
         run: npm test
 
       - name: echo
-        uses: echo "before Build"
+        run: echo "before Build"
 
       - name: Build
         run: npm run build
 
-#      - uses: echo "before Deploy"
+#      - run: echo "before Deploy"
 #
 #     - name: Deploy
 #       run:
