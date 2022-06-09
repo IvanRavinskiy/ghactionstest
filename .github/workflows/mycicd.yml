@@ -1,9 +1,6 @@
 name: CI/CD
 
-on:
-  push:
-    branches:
-      - dev
+on: [push]
 
 jobs:
   build:
@@ -12,39 +9,22 @@ jobs:
 
     steps:
 
-      - name: echo
-        run: echo "before Checkout"
-
       - name: Checkout repository
-        run: actions/checkout@v3
-
-      - name: echo
-        run: echo "before Set up Node.js"
+        uses: actions/checkout@v3
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: echo
-        run: echo "before Install dependencies"
-
       - name: Install dependencies
-        run: npm install
-
-      - name: echo
-        run: echo "before IRun the tests"
+        run: yarn
 
       - name: Run the tests
-        run: npm test
-
-      - name: echo
-        run: echo "before Build"
+        run: yarn test
 
       - name: Build
-        run: npm run build
-
-      - run: echo "before Deploy"
+        run: yarn build
 
   deploy:
 
@@ -56,8 +36,8 @@ jobs:
 
      - name: Deploy
        run:
-          git remote set-url origin https://${github_token}@github.com/${repository}
-          npm run deploy
-       env:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
+#          git remote set-url origin https://${github_token}@github.com/${repository}
+          yarn deploy
+#       env:
+#          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+#          repository: ${{ github.repository }}
