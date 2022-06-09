@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: echo
-        run: echo "before Checkout"
-
-      - name: Checkout repository
-        run: actions/checkout@v3
+#
+#      - name: echo
+#        run: echo "before Checkout"
+#
+#      - name: Checkout repository
+#        run: actions/checkout@v3
 
       - name: echo
         run: echo "before Set up Node.js"
