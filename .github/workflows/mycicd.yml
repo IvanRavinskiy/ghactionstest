@@ -45,6 +45,13 @@ jobs:
 
       - run: echo "before Deploy"
 
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
      - name: Deploy
        run:
           git remote set-url origin https://${github_token}@github.com/${repository}
