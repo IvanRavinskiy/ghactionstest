@@ -38,8 +38,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - uses: echo "before Deploy"
-
+#      - uses: echo "before Deploy"
+#
 #     - name: Deploy
 #       run:
 #          git remote set-url origin https://${github_token}@github.com/${repository}
