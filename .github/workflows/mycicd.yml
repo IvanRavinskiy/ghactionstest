@@ -36,8 +36,8 @@ jobs:
 
      - name: Deploy
        run:
-          git remote set-url origin https://${github_token}@github.com/${repository}
+#          git remote set-url origin https://${github_token}@github.com/${repository}
           yarn deploy
-       env:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
+#       env:
+#          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+#          repository: ${{ github.repository }}
