@@ -8,40 +8,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-#
-#      - name: echo
-#        run: echo "before Checkout"
-#
-#      - name: Checkout repository
-#        run: actions/checkout@v3
 
-      - name: echo
-        run: echo "before Set up Node.js"
+      - name: Checkout repository
+        run: actions/checkout@v3
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: echo
-        run: echo "before Install dependencies"
-
       - name: Install dependencies
         run: yarn
-
-      - name: echo
-        run: echo "before IRun the tests"
 
       - name: Run the tests
         run: yarn test
 
-      - name: echo
-        run: echo "before Build"
-
       - name: Build
         run: yarn build
-
-      - run: echo "before Deploy"
 
   deploy:
 
